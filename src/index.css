@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Josefin+Sans:wght@200;300;400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 25% 96%;
+    --foreground: 30 10% 20%;
+
+    --card: 30 20% 98%;
+    --card-foreground: 30 10% 20%;
+
+    --popover: 30 20% 98%;
+    --popover-foreground: 30 10% 20%;
+
+    --primary: 30 30% 30%;
+    --primary-foreground: 30 25% 96%;
+
+    --secondary: 30 15% 90%;
+    --secondary-foreground: 30 10% 25%;
+
+    --muted: 30 12% 92%;
+    --muted-foreground: 30 8% 50%;
+
+    --accent: 38 60% 55%;
+    --accent-foreground: 30 25% 96%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 30 15% 85%;
+    --input: 30 15% 85%;
+    --ring: 38 60% 55%;
+
+    --radius: 0.25rem;
+
+    /* Wedding-specific tokens */
+    --wedding-gold: 38 60% 55%;
+    --wedding-gold-light: 38 50% 75%;
+    --wedding-cream: 30 25% 96%;
+    --wedding-blush: 10 40% 90%;
+    --wedding-sage: 140 15% 65%;
+    --wedding-charcoal: 30 10% 20%;
+    --wedding-warm-white: 30 30% 98%;
+
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Cormorant Garamond', serif;
+    --font-sans: 'Josefin Sans', sans-serif;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .wedding-section {
+    @apply py-24 md:py-36 px-6;
+  }
+
+  .wedding-divider {
+    @apply w-20 h-px mx-auto my-10;
+    background: linear-gradient(90deg, transparent, hsl(var(--accent)), transparent);
+  }
+
+  .wedding-heading {
+    font-family: var(--font-display);
+    @apply text-3xl md:text-5xl font-light tracking-wide;
+    letter-spacing: 0.06em;
+  }
+
+  .wedding-subheading {
+    font-family: var(--font-sans);
+    @apply text-xs md:text-sm uppercase tracking-[0.35em] text-muted-foreground;
+  }
+
+  .wedding-body {
+    font-family: var(--font-body);
+    @apply text-lg md:text-xl leading-relaxed;
+  }
+
+  .wedding-gold-text {
+    color: hsl(var(--accent));
+  }
+
+  .wedding-card {
+    @apply bg-card border border-border/30 p-8 md:p-12;
+    box-shadow: 0 4px 24px -8px hsl(var(--accent) / 0.08);
+  }
+
+  .wedding-ornament::before,
+  .wedding-ornament::after {
+    content: '✦';
+    font-size: 0.5rem;
+    color: hsl(var(--accent));
+    vertical-align: middle;
+  }
+  .wedding-ornament::before {
+    margin-right: 1rem;
+  }
+  .wedding-ornament::after {
+    margin-left: 1rem;
+  }
+}
